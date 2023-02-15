@@ -74,7 +74,7 @@ extension UIView {
         noInternetView = UIView(frame: CGRect(x: 0, y: 52, width: self.frame.size.width, height: self.frame.size.height - tabBarRatio * 52))
         noInternetView.backgroundColor = .init(red: 0, green: 0, blue: 0, alpha: 0.5)
         noInternetView.layer.zPosition = 2
-        noInternetView.tag = 576
+        noInternetView.tag = tag
         self.addSubview(noInternetView)
         
         var noInternetLabel = UILabel()
