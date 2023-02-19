@@ -7,6 +7,7 @@
 
 import UIKit
 import Network
+import SafariServices
 
 class DetailView: UIViewController {
     
@@ -33,15 +34,11 @@ class DetailView: UIViewController {
     @IBOutlet var descriptionLabel: UILabel!
     
     @IBAction func licenceButtonPressed(_ sender: Any) {
-        print("GING TO", licenceUrl)
         
         let url = URL(string: licenceUrl)
         
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url!)
-        }
+        let vc = SFSafariViewController(url: url!)
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
