@@ -88,7 +88,7 @@ class StartView: UIViewController {
             internetLabel.textColor = .black
         } else {
             print("Dark mode")
-            personalImage.image = UIImage(named: "dark_mladen225")?.withRenderingMode(.alwaysTemplate)
+            personalImage.image = UIImage(named: "dark_mladen225")
             personalImage.contentMode = .scaleAspectFill
             introTextLabe.textColor = .white
             internetLabel.textColor = .white
