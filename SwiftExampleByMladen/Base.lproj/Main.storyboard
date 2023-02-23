@@ -253,7 +253,7 @@
                                             <constraint firstAttribute="width" constant="52" id="A5y-C1-1yr"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button" image="chevron.left" catalog="system"/>
+                                        <state key="normal" title="        " image="chevron.left" catalog="system"/>
                                         <connections>
                                             <action selector="backButtonPressed:" destination="5am-7K-Y3E" eventType="touchUpInside" id="ZQT-lZ-dUM"/>
                                         </connections>

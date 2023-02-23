@@ -100,7 +100,16 @@ class ContactView: UIViewController, UITabBarDelegate, MFMailComposeViewControll
                 DispatchQueue.main.async {
                     
                     self.internetLabel.text = "You are offline"
-                    self.contactView.addMessageAndTag(tag: 576, tabBarRatio: 2)
+                    
+                    if self.traitCollection.userInterfaceStyle == .light {
+                                
+                        self.contactView.addMessageAndTag(tag: 576, tabBarRatio: 1, isDarkMode: false)
+                        
+                    } else {
+                        
+                        self.contactView.addMessageAndTag(tag: 576, tabBarRatio: 1, isDarkMode: true)
+                        
+                    }
                     
                 }
             } else {
@@ -170,10 +179,22 @@ class ContactView: UIViewController, UITabBarDelegate, MFMailComposeViewControll
             
             internetLabel.textColor = .black
             
+            internetLabel.textColor = .black
+            if let viewWithTag = self.view.viewWithTag(576) {
+                viewWithTag.removeFromSuperview()
+                contactView.addMessageAndTag(tag: 576, tabBarRatio: 1, isDarkMode: false)
+            }
+            
         } else {
             print("Dark mode")
             
             internetLabel.textColor = .white
+            
+            internetLabel.textColor = .black
+            if let viewWithTag = self.view.viewWithTag(576) {
+                viewWithTag.removeFromSuperview()
+                contactView.addMessageAndTag(tag: 576, tabBarRatio: 1, isDarkMode: true)
+            }
 
         }
     }

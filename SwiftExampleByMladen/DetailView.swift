@@ -60,7 +60,16 @@ class DetailView: UIViewController {
                     
                     self.internetLabel.text = "You are offline"
                     self.licenceButton.isEnabled = false
-                    self.viewDetail.addMessageAndTag(tag: 676, tabBarRatio: 1)
+    
+                    if self.traitCollection.userInterfaceStyle == .light {
+                                
+                        self.viewDetail.addMessageAndTag(tag: 676, tabBarRatio: 1, isDarkMode: false)
+                        
+                    } else {
+                        
+                        self.viewDetail.addMessageAndTag(tag: 676, tabBarRatio: 1, isDarkMode: true)
+                        
+                    }
                     
                 }
             } else {
@@ -100,10 +109,20 @@ class DetailView: UIViewController {
 
             internetLabel.textColor = .black
             
+            if let viewWithTag = self.view.viewWithTag(676) {
+                viewWithTag.removeFromSuperview()
+                viewDetail.addMessageAndTag(tag: 676, tabBarRatio: 1, isDarkMode: false)
+            }
+            
         } else {
             print("Dark mode")
 
             internetLabel.textColor = .white
+            
+            if let viewWithTag = self.view.viewWithTag(676) {
+                viewWithTag.removeFromSuperview()
+                viewDetail.addMessageAndTag(tag: 676, tabBarRatio: 1, isDarkMode: true)
+            }
             
         }
     }

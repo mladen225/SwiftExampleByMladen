@@ -67,12 +67,12 @@ extension UILabel {
 
 extension UIView {
     
-    func addMessageAndTag(tag: Int, tabBarRatio: CGFloat) {
+    func addMessageAndTag(tag: Int, tabBarRatio: CGFloat, isDarkMode: Bool) {
         
         var noInternetView = UIView()
         
         noInternetView = UIView(frame: CGRect(x: 0, y: 52, width: self.frame.size.width, height: self.frame.size.height - tabBarRatio * 52))
-        noInternetView.backgroundColor = .init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        noInternetView.backgroundColor = (isDarkMode == false) ? .init(red: 0, green: 0, blue: 0, alpha: 0.5) : .init(red: 1, green: 1, blue: 1, alpha: 0.4)
         noInternetView.layer.zPosition = 2
         noInternetView.tag = tag
         self.addSubview(noInternetView)
@@ -83,7 +83,7 @@ extension UIView {
         noInternetLabel.textColor = Commons.MAIN_COLOR
         noInternetLabel.textAlignment = .center
         noInternetLabel.numberOfLines = 10
-        noInternetLabel.backgroundColor = UIColor.white
+        noInternetLabel.backgroundColor = (isDarkMode == false) ? Commons.BACKGROUND_COLOR_LIGHT : Commons.BACKGROUND_COLOR_DARK
         noInternetLabel.layer.cornerRadius = 24
         noInternetLabel.layer.borderColor = Commons.MAIN_COLOR_CG
         noInternetLabel.layer.borderWidth = 2
